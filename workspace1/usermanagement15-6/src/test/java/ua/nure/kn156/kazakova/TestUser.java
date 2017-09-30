@@ -25,7 +25,15 @@ public class TestUser extends TestCase {
 		user.setFirstName("Anna");
 		user.setLastName("Kazakova");
 		assertEquals("Kazakova, Anna", user.getFullName());
+		user.setFirstName(null);
+		try {
+			user.getFullName();
+            fail("Expected IllegalArgumentException");
+        } catch (IllegalArgumentException e) {
+        	assertEquals(e.getMessage(), "FirstName or LastName is null");
+        }
 	}
+
 	public void testGetAge() {
 		user.setDate(date);
 		assertEquals(AGE, user.getAge());

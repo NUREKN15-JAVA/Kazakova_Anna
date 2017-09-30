@@ -2,6 +2,7 @@
 <project name="usermanagement" basedir="." default="test">
 	<property name="main-java-dir" value="${basedir}/src/main/java"/>
 	<property name="test-java-dir" value="${basedir}/src/test/java"/>
+	<property name="test-result-dir" value="${build-dir}/test-result"/>  
 	<property name="build-dir" value="${basedir}/bin"/>
 	
 	<target name="clean">
@@ -25,8 +26,12 @@
 			<classpath> 
 				<pathelement location="${build-dir}"/>
 			</classpath>
-			<formatter type="plain"/> 
-			<test name="package ua.nure.kn156.kazakova.TestUser"/> 
+			<formatter type="plain"/>
+			<batchtest todir="${test-result-dir}" fork="yes">
+				<fileset dir="${test-java-dir}">
+			    	<include name="**/*Test.java"/>
+			    </fileset>            
+			</batchtest>
 		</junit>
 	</target>
 	

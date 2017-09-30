@@ -34,6 +34,7 @@ public class User {
 		this.date = date;
 	}
 	public String getFullName() {
+		if (getLastName() == null || getFirstName() == null) throw new IllegalArgumentException("FirstName or LastName is null");
 		return new StringBuilder(getLastName()).append(", ").append(getFirstName()).toString();
 	}
 	public long getAge() {
