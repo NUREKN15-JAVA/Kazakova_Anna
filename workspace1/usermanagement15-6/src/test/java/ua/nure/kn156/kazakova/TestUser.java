@@ -4,19 +4,22 @@ import java.util.Calendar;
 import java.util.Date;
 
 import junit.framework.TestCase;
-
+/**
+ * {@value #AGE} is age of user in years and actual for 2017
+ */
 public class TestUser extends TestCase {
+	private static final int YEAR_OF_BIRTH = 1998;
+	private static final int DAY_OF_BIRTH = 16;
 	private static final int AGE = 19;
 	private User user;
 	private Date date;
 	
 	@Override
 	protected void setUp() throws Exception {
-		// TODO Auto-generated method stub
 		super.setUp();
 		user = new User();
 		Calendar calendar = Calendar.getInstance();
-		calendar.set(1998, Calendar.MARCH, 16);
+		calendar.set(YEAR_OF_BIRTH, Calendar.MARCH, DAY_OF_BIRTH);
 		date = calendar.getTime();
 		
 	}
