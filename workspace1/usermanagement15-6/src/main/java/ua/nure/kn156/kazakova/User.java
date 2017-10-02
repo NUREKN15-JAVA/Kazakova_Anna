@@ -40,9 +40,15 @@ public class User {
 	public long getAge() {
 		Calendar calendar = Calendar.getInstance();
 		long currentYear = calendar.get(Calendar.YEAR);
+		long currentDayOfYear = calendar.get(Calendar.DAY_OF_YEAR);
 		calendar.setTime(getDate());
 		long yearOfBirth = calendar.get(Calendar.YEAR);
-		return currentYear - yearOfBirth;
+		long birthDayOfYear = calendar.get(Calendar.DAY_OF_YEAR);
+		long age = currentYear - yearOfBirth;
+		if (currentDayOfYear < birthDayOfYear) {
+				age--;
+			}
+		return age;
 	}
 	
 }
