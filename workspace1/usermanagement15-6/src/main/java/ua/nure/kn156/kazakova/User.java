@@ -9,15 +9,6 @@ public class User {
 	private String lastName;
 	private Date date;
 	
-	public User(User user) {
-		id = user.getId();
-		firstName = user.getFirstName();
-		lastName = user.getLastName();
-		date = user.getDate();
-	}
-	public User() {
-		
-	}
 	public Long getId() {
 		return id;
 	}
