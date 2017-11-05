@@ -9,5 +9,8 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
 	<classpathentry kind="lib" path="C:/Users/user/workspace1/usermanagement15-6/lib/dbunit-2.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/user/workspace1/usermanagement15-6/lib/hsqldb-1.8.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace1/usermanagement15-6/lib/jfcunit-2.08.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace1/usermanagement15-6/lib/mockobjects-core-0.09.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace1/usermanagement15-6/lib/regexp-1.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

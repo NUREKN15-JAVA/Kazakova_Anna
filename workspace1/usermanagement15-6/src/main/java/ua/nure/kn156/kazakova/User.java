@@ -3,6 +3,7 @@ package ua.nure.kn156.kazakova;
 import java.util.Calendar;
 import java.util.Date;
 
+
 public class User {
 	private Long id;
 	private String firstName;
@@ -15,9 +16,22 @@ public class User {
 		lastName = user.getLastName();
 		date = user.getDate();
 	}
-	public User() {
-		
+	public User(Long id, String firstName, String lastName, Date date) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.date = date;
 	}
+	
+	public User() {
+	}
+	
+	public User(String firstName, String lastName, Date date) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.date = date;
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -60,4 +74,22 @@ public class User {
 		return age;
 	}
 	
+	public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (this == obj) {
+            return true;
+        }
+        if (this.getId() == null && ((User) obj).getId() == null) {
+            return true;
+        }
+        return this.getId().equals(((User) obj).getId());
+    }
+    public int hashCode() {
+        if (this.getId() == null) {
+            return 0;
+        }
+        return this.getId().hashCode();
+    }
 }
