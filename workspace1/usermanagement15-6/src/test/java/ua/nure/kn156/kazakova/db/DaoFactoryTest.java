@@ -9,7 +9,7 @@ public class DaoFactoryTest extends TestCase {
 		assertNotNull("DaoFactory instance is null", daoFactory);
 		try {
 			UserDAO userDao = daoFactory.getUserDao();
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
             fail(e.toString());
 		}
