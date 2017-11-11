@@ -75,7 +75,7 @@ public class MainFrameTest extends JFCTestCase {
 		assertNotNull("Could not find component '" + name + "'", component);
 		return component;
 	}
-/*
+
 	public void testBrowsePanel() {
 		find(JPanel.class, "browsePanel");
 
@@ -201,7 +201,6 @@ public class MainFrameTest extends JFCTestCase {
 	public void testEditUser() {
 		try {
 			User expectedUser = new User(new Long(1000), "George", "Bush", new Date());
-			System.out.println(expectedUser);
 			mockUserDAO.expect("update", expectedUser);
 
 			List users = new ArrayList(this.users);
@@ -234,7 +233,7 @@ public class MainFrameTest extends JFCTestCase {
 			fail(e.toString());
 		}
 	}
-*/
+
 
 	private void findDialog(String title) {
 		JDialog dialog;

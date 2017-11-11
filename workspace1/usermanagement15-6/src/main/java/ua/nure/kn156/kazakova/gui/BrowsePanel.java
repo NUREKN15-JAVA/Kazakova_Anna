@@ -117,7 +117,7 @@ public class BrowsePanel extends JPanel implements ActionListener{
             model = new UserTableModel(parent.getDAO().findAll());
         } catch (DatabaseException e) {
             model = new UserTableModel(new ArrayList());
-            JOptionPane.showMessageDialog(this, e.getMessage(), "Error",
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", //$NON-NLS-1$
                     JOptionPane.ERROR_MESSAGE);
 
         }
@@ -133,8 +133,8 @@ public class BrowsePanel extends JPanel implements ActionListener{
         } else if ("edit".equalsIgnoreCase(actionCommand)) { //$NON-NLS-1$
             int selectedRow = userTable.getSelectedRow();
             if (selectedRow == -1) {
-                JOptionPane.showMessageDialog(this, "Выберите пользователя",
-                        "Edit user", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, Messages.getString("BrowsePanel.chose_user"), //$NON-NLS-1$
+                        "Edit user", JOptionPane.INFORMATION_MESSAGE); //$NON-NLS-1$
                 return;
             }
             User user = ((UserTableModel) userTable.getModel())
@@ -144,8 +144,8 @@ public class BrowsePanel extends JPanel implements ActionListener{
         } else if ("delete".equalsIgnoreCase(actionCommand)) { //$NON-NLS-1$
             int selectedRow = userTable.getSelectedRow();
             if (selectedRow == -1) {
-                JOptionPane.showMessageDialog(this, "Выберите пользователя",
-                        "Edit user", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, Messages.getString("BrowsePanel.chose_user"), //$NON-NLS-1$
+                        "Edit user", JOptionPane.INFORMATION_MESSAGE); //$NON-NLS-1$
                 return;
             }
             try {
@@ -153,7 +153,7 @@ public class BrowsePanel extends JPanel implements ActionListener{
                         ((UserTableModel) userTable.getModel())
                                 .getUser(selectedRow));
             } catch (DatabaseException e1) {
-                JOptionPane.showMessageDialog(this, e1.getMessage(), "Error",
+                JOptionPane.showMessageDialog(this, e1.getMessage(), "Error", //$NON-NLS-1$
                         JOptionPane.ERROR_MESSAGE);
             }
             initTable();
@@ -161,8 +161,8 @@ public class BrowsePanel extends JPanel implements ActionListener{
         } else if ("details".equalsIgnoreCase(actionCommand)) { //$NON-NLS-1$
         	int selectedRow = userTable.getSelectedRow();
             if (selectedRow == -1) {
-                JOptionPane.showMessageDialog(this, "Выберите пользователя",
-                        "Edit user", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, Messages.getString("BrowsePanel.chose_user"), //$NON-NLS-1$
+                        "Edit user", JOptionPane.INFORMATION_MESSAGE); //$NON-NLS-1$
                 return;
             }
             User user = ((UserTableModel) userTable.getModel())
