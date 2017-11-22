@@ -8,7 +8,7 @@
     <property name="main-webapp-webinf-dir" value="${main-webapp-dir}/WEB-INF"/>
     <property name="main-resources-dir" value="${basedir}/src/main/resources"/>
     
-	<property name="build-dir" value="${basedir}/target"/>
+	<property name="build-dir" value="${basedir}/WebContent"/>
     <property name="classes-dir" value="${build-dir}/classes"/>   
     <property name="test-result-dir" value="${build-dir}/test-result"/>      
     <property name="lib-dir" value="${basedir}/lib"/>   
