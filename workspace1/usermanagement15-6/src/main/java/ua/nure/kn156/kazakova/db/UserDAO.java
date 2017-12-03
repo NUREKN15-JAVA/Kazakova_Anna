@@ -25,6 +25,8 @@ public interface UserDAO {
 	void delete(User user) throws DatabaseException;
 	
 	Collection<User> findAll() throws DatabaseException;
-
+	
+	Collection<User> find(String firstName, String lastName) throws DatabaseException;
+	
 	void setConnectionFactory(ConnectionFactory connectionFactory);
 }

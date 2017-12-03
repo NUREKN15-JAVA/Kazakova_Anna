@@ -20,6 +20,7 @@ class HsqldbUserDao implements UserDAO {
 	private static final String SELECT_USER_BY_ID = "SELECT id, firstname, lastname, dateofbirth FROM users WHERE id = ?";
 	private static final String SELECT_ALL = "SELECT id, firstname, lastname, dateofbirth FROM users";
 	private static final String INSERT_QUERY = "INSERT INTO users (firstname, lastname, dateofbirth) VALUES (?, ?, ?)";
+	private static final String SELECT_BY_NAMES = "SELECT id, firstname, lastname, dateofbirth FROM users WHERE firstname=? AND  lastname=?";
 	private ConnectionFactory connectionFactory;
 
 	public HsqldbUserDao(ConnectionFactory connectionFactory) {
@@ -153,6 +154,35 @@ class HsqldbUserDao implements UserDAO {
 			ResultSet resultSet = statement.executeQuery(SELECT_ALL);
 			User user = new User();
 			while (resultSet.next()) {
+				user.setId(resultSet.getLong(1));
+				user.setFirstName(resultSet.getString(2));
+				user.setLastName(resultSet.getString(3));
+				user.setDate(resultSet.getDate(4));
+				result.add(user);
+			}
+			resultSet.close();
+			statement.close();
+			connection.close();
+			return result;
+		} catch(DatabaseException e) {
+			throw e;
+		} catch(SQLException e) {
+			throw new DatabaseException(e);
+		}
+	}
+
+	@Override
+	public Collection<User> find(String firstName, String lastName) throws DatabaseException {
+		Collection<User> result = new LinkedList<User>();
+		try {
+			Connection connection = connectionFactory.createConnection();
+			PreparedStatement statement = connection
+					.prepareStatement(SELECT_BY_NAMES);
+			statement.setString(1, firstName);
+			statement.setString(2, lastName);
+			ResultSet resultSet = statement.executeQuery();
+			while (resultSet.next()) {
+				User user = new User();
 				user.setId(resultSet.getLong(1));
 				user.setFirstName(resultSet.getString(2));
 				user.setLastName(resultSet.getString(3));
